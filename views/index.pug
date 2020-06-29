@@ -1,0 +1,34 @@
+extends layoutNav.pug
+append content
+  .content
+    .table-cell
+      #m0ncentrage
+        .m0ncentrageParafoot
+          #INDEX
+            h1 Welcome to my devlab
+            video#jugglejungle(playsinline autoplay muted loop poster='/images/kuansiFalls.webp')
+              source( src='/images/theOneFinal.webm' type='video/webm')
+            //button#BtnJs0nPl4Y PLAY
+            .paraFoot My name is 
+              a.twitter-follow-button(href='https://twitter.com/K431M1?ref_src=twsrc%5Etfw' data-size='large' data-show-count='false') Follow @K431M1
+            #s0leil
+            .paraFoot I'm an IBM RPG &amp; Javascript Developer
+            include jeuCV.pug
+            .paraFoot This website hosts my skills, projects and experiences.
+            #divTwitter
+              a.twitter-timeline(data-width='90%' data-height='500px' data-chrome="transparent border" data-theme='' href='https://twitter.com/K431M1?ref_src=K431M1') Tweets by M1K431
+      //noborders noheader nofooter
+      //include joust.pug
+      //include adm1n.pug
+append scripts
+  script(async='' src='//embed.redditmedia.com/widgets/platform.js' charset='UTF-8')
+  script(async='' src='https://platform.twitter.com/widgets.js' charset='utf-8')
+  script(src='/javascripts/soleil.js' async)
+  script(src='/javascripts/BrickBreaker.js' async)
+  script.
+    $('#intro').removeClass('css3button')
+    $('#intro').addClass('css3buttonRed')
+    $('#resume').removeClass('css3buttonRed')
+    $('#resume').addClass('css3button')
+    $('#admin').removeClass('css3buttonRed')
+    $('#admin').addClass('css3button')
