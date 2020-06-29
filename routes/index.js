@@ -19,8 +19,8 @@ router.get('/', function (req, res, next) {
   req.session.ip = ip
   req.session.geoloc = geo
   res.render('index', { title: 'Express' });
-  //LOGGER
-  logger.trace(req.session)
+  //loggeur
+  loggeur.trace(req.session)
   console.log(req.session)
 });
 
@@ -32,7 +32,7 @@ router.get('/cv', function (req, res, next) {
     //AJax
   }
   res.render('cv', { title: 'Express' });
-  logger.trace(pathname + ': ' + req.session.views[pathname])
+  loggeur.trace(pathname + ': ' + req.session.views[pathname])
   console.log(pathname + ': ' + req.session.views[pathname])
 });
 
@@ -44,7 +44,7 @@ router.get('/aL1v3', function (req, res, next) {
     //AJax
   }
   res.render('aL1v3', { title: 'Express' });
-  logger.trace(pathname + ': ' + req.session.views[pathname])
+  loggeur.trace(pathname + ': ' + req.session.views[pathname])
   console.log(pathname + ': ' + req.session.views[pathname])
 });
 
@@ -56,7 +56,7 @@ router.get('/giftedADHD', function (req, res, next) {
     //AJax
   }
   res.render('giftedADHD', { title: 'Express' });
-  logger.trace(pathname + ': ' + req.session.views[pathname])
+  loggeur.trace(pathname + ': ' + req.session.views[pathname])
   console.log(pathname + ': ' + req.session.views[pathname])
 });
 

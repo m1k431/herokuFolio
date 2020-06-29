@@ -13,7 +13,7 @@ let datetime = new Date(),
   p0rt = 80,
   filePath = `./logs/ip${nbLog}.log`,
   nbUser = 0,
-  logger = log4js.getLogger('trace')
+  loggeur = log4js.getlogger('trace')
 
 var nbLog = datetime.getFullYear() + String(datetime.getMonthFormatted()) + String(datetime.getDate()) + String(datetime.getHoursFormatted()) + String(datetime.getMinutesFormatted()) + String(datetime.getSecondsFormatted()),
   ip, geo,
@@ -57,7 +57,7 @@ client.connect(err => {
   client.close()
 })
 
-//APP.LOGGER_________________________________________________________________
+//APP.loggeur_________________________________________________________________
 log4js.configure({
   appenders: {
     trace: { type: 'file', filename: `logs/ip${nbLog}.log` }
@@ -75,7 +75,7 @@ fs.writeFile(filePath, datetime, (err) => {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
+app.use(loggeur('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
