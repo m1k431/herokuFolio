@@ -100,7 +100,7 @@ const jeuBreaker = function () {
         imgSoccer.style.height = '500px'
         imgSoccer.style.left = '-4px'
         imgSoccer.style.top = '-142.5px'
-        imgSoccer.src = '/static/img/ball.png'
+        imgSoccer.src = '/images/ball.png'
         imgSoccer.style.backgroundColor = 'none'
         divSprite.appendChild(imgSoccer)
 
