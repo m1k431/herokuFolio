@@ -43,15 +43,15 @@ const jeuBreaker = function () {
         const AudioContext = window.AudioContext || window.webkitAudioContext
         const context = new AudioContext()
         var audioStack
-        var pongA = './static/sound/pongA.mp3'
-        var pongB = './static/sound/pongB.mp3'
-        var pongC = './static/sound/pongC.mp3'
+        var pongA = './sound/pongA.mp3'
+        var pongB = './sound/pongB.mp3'
+        var pongC = './sound/pongC.mp3'
         //var start = './static/sound/start.mp3'
         //ghibertoStyle
-        var start = './static/sound/ghibertoRJ45.mp3'
+        var start = './sound/ghibertoRJ45.mp3'
         //var flagS = './static/sound/flagS.mp3'
-        var youWin = './static/sound/youWin.mp3'
-        var miss = './static/sound/miss.mp3'
+        var youWin = './sound/youWin.mp3'
+        var miss = './sound/miss.mp3'
         var score = 0
         var combo = 1
         var clickMove = false
@@ -100,7 +100,7 @@ const jeuBreaker = function () {
         imgSoccer.style.height = '500px'
         imgSoccer.style.left = '-4px'
         imgSoccer.style.top = '-142.5px'
-        imgSoccer.src = '/static/img/ball.png'
+        imgSoccer.src = '/images/ball.png'
         imgSoccer.style.backgroundColor = 'none'
         divSprite.appendChild(imgSoccer)
 
