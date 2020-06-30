@@ -7,18 +7,18 @@ append content
           //.moi
             //display-none
             //p.moiPara Mika&euml;l GARCIA 37 y/o 
-              //images.foto(src='/static/images/photoCV.jpg' alt='Mafoto' height='78' onclick='openlinkedin();')
-            //a.pdf.french(href='/static/images/cvMikaelFr.pdf')
-              //images.pdf.french(src='/static/images/downPdf.svg' alt='download pdf' height='64')
-            //a.pdf.english(href='/static/images/cvMikaelEn.pdf')
-              //images.pdf.english(src='/static/images/downPdf.svg' alt='download pdf' height='64')
+              //img.foto(src='/static/img/photoCV.jpg' alt='Mafoto' height='78' onclick='openlinkedin();')
+            //a.pdf.french(href='/static/img/cvMikaelFr.pdf')
+              //img.pdf.french(src='/static/img/downPdf.svg' alt='download pdf' height='64')
+            //a.pdf.english(href='/static/img/cvMikaelEn.pdf')
+              //img.pdf.english(src='/static/img/downPdf.svg' alt='download pdf' height='64')
             //p.moiPara +33 695 490 777
             //p.moiPara garcia.mikael@gmail.com
           #metier
             h1 IBM RPG &amp; Javascript Developer
           p.flags
-            img#english(src='/images/uk.svg' alt='English' height='30')
-            img#french(src='/images/france.svg' alt='Français' height='30')
+            img#english(src='/static/img/uk.svg' alt='English' height='30')
+            img#french(src='/static/img/france.svg' alt='Français' height='30')
           .competen#competen
             h2.titreH2.french Comp&eacute;tences
             h2.titreH2.english Skills
@@ -73,7 +73,6 @@ append content
               .infolast.french Accueil, service et conseil commercial
               .infolast.english Incoming, service and commercial advice
               .infolast.spanish Recepción, servicio y asesoramiento comercial
-          hr
           .competen#experiences
             h2.titreH2.french Exp&eacute;riences
             h2.titreH2.english Experiences
@@ -176,7 +175,6 @@ append content
               .infojob.english Cultural sales consultant Leclerc, waiter / bartender, Bakery worker, multi-purpose employee at Intermarché
               h3.titreH3.spanish Trabajos de estudiante
               .infojob.spanish Asesor de ventas culturales Leclerc, camarero / camarero, trabajador de panadería, empleado multipropósito en Intermarché
-          hr
           .competen#formation
             h2.titreH2.french Formation
             h2.titreH2.english Training
@@ -236,17 +234,16 @@ append content
               .infojob.english Specialty physics-chemistry
               h3.titreH3.spanish Bachillerato Científico        
               .infojob.spanish Especialidad física-química
-          hr
-          .complemen#complementaire
+          .competen#complementaire
             //h2.titreH2.french El&eacute;ments Compl&eacute;mentaires
             //h2.titreH2.english Additional Info
             //h2.titreH2.spanish Información Complementaria
             .infojob.french Permis : auto, moto.
-              img.linkedin(src='/static/images/LinkedIn_Logo.svg' alt='logolinkedin' onclick='openlinkedin();')
+              img.linkedin(src='/static/img/LinkedIn_Logo.svg' alt='logolinkedin' onclick='openlinkedin();')
             .infojob.english Driving licences: car, motorcycle.
-              img.linkedin(src='/static/images/LinkedIn_Logo.svg' alt='logolinkedin' onclick='openlinkedin();')
+              img.linkedin(src='/static/img/LinkedIn_Logo.svg' alt='logolinkedin' onclick='openlinkedin();')
             .infojob.spanish Permiso: auto, motocicleta.
-              img.linkedin(src='/static/images/LinkedIn_Logo.svg' alt='logolinkedin' onclick='openlinkedin();')
+              img.linkedin(src='/static/img/LinkedIn_Logo.svg' alt='logolinkedin' onclick='openlinkedin();')
             .infojob.french Sports: 
               | gym, sports de glisse, VTT.
             .infojob.english Sports: gym, board sports, mountain biking.
@@ -256,7 +253,7 @@ append content
             .infojob.spanish HOBBIES: electrónica, decoración, diseño, renovación.
             //.web www.mikael.ml
 append scripts
-  script(src='/javascripts/trad.js' defer)
+  script(src='/static/js/trad.js' defer)
   script.
     $('#intro').removeClass('css3buttonRed')
     $('#intro').addClass('css3button')
