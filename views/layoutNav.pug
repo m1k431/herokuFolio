@@ -4,17 +4,17 @@ html(lang="en")
     block head
       title IBM RPG &amp; Javascript Developer
       meta(charset="UTF-8")
-      meta(name="viewport", content="width=device-width, initial-scale=0.6")
-      //meta(http-equiv="X-UA-Compatible", content="ie=edge")
+      meta(name="viewport" content="width=device-width, initial-scale=0.6")
+      //meta(http-equiv="X-UA-Compatible" content="ie=edge")
       meta(name='description' content='My Javascript Portfolio')
       meta(property='og:title' content='IBM RPG & Javascript Developer')
       meta(property='og:type' content='image')
-      meta(property='og:url' content='https://m1k431.herokuapp.com/')
-      meta(property='og:image' content='https://m1k431.herokuapp.com/images/ogImage.png')
+      meta(property='og:url' content='http://www.mikael.ml')
+      meta(property='og:image' content='//mikael.ml/static/img/ogImage.png')
       meta(property='og:description' content='My Javascript Portfolio')
-      link(rel='manifest' href='mikael.manifest')
-      link(rel='stylesheet' href='/stylesheets/styles.css')
-      link(rel='stylesheet' href='/stylesheets/cv.css') 
+      link(rel='manifest' href='/static/mikael.manifest')
+      link(rel='stylesheet' href='/static/css/styles.css')
+      link(rel='stylesheet' href='/static/css/cv.css') 
   body
     nav#navBar
       ul
@@ -23,19 +23,18 @@ html(lang="en")
         li
           a#resume.nav(rel='preconnect' href='/cv' class='css3button') CV
         li
-          a#admin.nav(rel='preconnect' href='/aL1v3' class='css3button') aL1v3
+          a#admin.nav(rel='preconnect' href='/adm1n' class='css3button') aL1v3
         li
           a#adhd.nav(rel='preconnect' href='/giftedADHD' class='css3button') ADHD
     block content
     block foot
       #footer
-          a.minilogL(rel='preconnect' href='https://github.com/m1k431')
-            img(src='/images/gitHubMark.png' alt='git' height='35')
-            img(src='/images/gitHubW.png' alt='git' height='35')
-          a.minilogR(rel='preconnect' href='https://www.linkedin.com/in/mika%C3%ABl-garcia/')
-            img(src='/images/LinkedIn_Logo.svg' alt='linkedin' height='35')
+        a.minilogL(rel='preconnect' href='https://github.com/m1k431')
+          img(src='/static/img/gitHubMark.png' alt='git' height='35')
+          img(src='/static/img/gitHubW.png' alt='git' height='35')
+        a.minilogR(rel='preconnect' href='https://www.linkedin.com/in/mika%C3%ABl-garcia/')
+          img(src='/static/img/LinkedIn_Logo.svg' alt='linkedin' height='35')
     block scripts
-      script(src='/javascripts/jquery-3.3.1.min.js')
-      script(src='/javascripts/jquery-ui.min.js')
-      script(src='/javascripts/socket.io.js' async)
-      //script(src='/javascripts/layoutNav.js')
+      script(src='/static/js/jquery-3.3.1.min.js')
+      script(src='/static/js/jquery-ui.min.js')
+      script(src='/static/js/socket.io.js' async)
