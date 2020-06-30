@@ -15,8 +15,8 @@ const monIntro = function () {
     })
     BtnJs0nPl4Y.click()*/
     $('#jugglejungle').fadeIn(100)
-    
-    
+
+
     //Blue/red menu button
     $('#intro').removeClass('css3button')
     $('#intro').addClass('css3buttonRed')
@@ -24,7 +24,7 @@ const monIntro = function () {
     $('#INDEX').fadeIn(100)
     $('#m0ncentrage').fadeIn(100)
 
-    
+
     //DIV SOLEILLLLLLLLL
     var m0nsoleil = document.getElementById('s0leil')
     m0nsoleil.style.position = 'relative'
@@ -46,7 +46,7 @@ const monIntro = function () {
     mon360.muted = true
     mon360.loop = true
     var src360 = document.createElement('source')
-    src360.src = '/static/img/360backnoreverse.webm'
+    src360.src = '/images/360backnoreverse.webm'
     src360.type = 'video/webm'
     //ATARIIIIIIIIII
     var divAtari = document.createElement('div')
@@ -55,7 +55,7 @@ const monIntro = function () {
     divAtari.style.right = '5px'
     var m0nimg = document.createElement('img')
     m0nimg.style.position = 'relative'
-    m0nimg.src = '/static/img/Atari.webp'
+    m0nimg.src = '/images/Atari.webp'
     //m0nimg.style.top = '36%'
     //m0nimg.style.right = '6%'
     m0nimg.id = 'atari'
@@ -150,7 +150,7 @@ const monIntro = function () {
     ctxM4col.closePath()
     ctxM4col.stroke()
     ctxM4col.fill()
-    
+
     //SONIC PALM TREEEEEEEE
     var divMonkey = document.createElement('div')
     divMonkey.id = 'divMonkey'
@@ -168,7 +168,7 @@ const monIntro = function () {
     imgMonkey.style.position = 'absolute'
     imgMonkey.style.height = '100%'
     imgMonkey.style.left = '-2215px'
-    imgMonkey.src = '/static/img/monkey.png'
+    imgMonkey.src = '/images/monkey.png'
     var imgSonicPalm = document.createElement('img')
     imgSonicPalm.id = 'palmTree'
     imgSonicPalm.className = 'palmTree'
@@ -176,7 +176,7 @@ const monIntro = function () {
     imgSonicPalm.style.height = '65%'
     imgSonicPalm.style.top = '0px'
     imgSonicPalm.style.left = '5px'
-    imgSonicPalm.src = '/static/img/palmTree.png'
+    imgSonicPalm.src = '/images/palmTree.png'
     //SONICCCCCCCCC
     var divSonic = document.createElement('div')
     divSonic.id = 'divSonic'
@@ -195,7 +195,7 @@ const monIntro = function () {
     imgSonic.style.position = 'relative'
     imgSonic.style.left = '-55px'
     imgSonic.style.top = '-21px'
-    imgSonic.src = '/static/img/sonic2.png'
+    imgSonic.src = '/images/sonic2.png'
     m0nsoleil.appendChild(divMonkey)
     divMonkey.appendChild(imgMonkey)
     divSonic.appendChild(imgSonic)
@@ -206,7 +206,7 @@ const monIntro = function () {
     divAtari.appendChild(mon360)
     divAtari.appendChild(m0nimg)
     m0nsoleil.appendChild(divSonic)
-    var bool1 = false    
+    var bool1 = false
     var bool2 = false
     var idB, idW, idMU, idMD, idS, idM
     var sonicBored = function () {
@@ -299,51 +299,51 @@ const monIntro = function () {
             ctx.clearRect(0, 0, 40, 40)
             ctxLune.clearRect(0, 0, 40, 40)
             switch (c00rdX) {
-            case 45:
-                $('#space').animate({
-                    backgroundColor: '#0a15db'
-                }, 1000)
-                cancelAnimationFrame(idW)
-                cancelAnimationFrame(idM)
-                //clearInterval(idS)
-                $('#space').fadeOut(1000)
-                break
-            case 52:
-                $('#moon').fadeOut(1500)
-                idMD = requestAnimationFrame(monkeyDown)
-                cancelAnimationFrame(idB)
-                idW = requestAnimationFrame(sonicWalk)
-                idM = requestAnimationFrame(moveSonicRight)
-                snowBack.play()
-                break
-            case 62:
-                cancelAnimationFrame(idMD)
-                idMU = requestAnimationFrame(monkeyUp)
-                break
-            case 78:
-                cancelAnimationFrame(idMU)
-                idMD = requestAnimationFrame(monkeyDown)
-                break
-            case 90:
-                $('#moon').fadeIn(5000)
-                cancelAnimationFrame(idMD)
-                idMU = requestAnimationFrame(monkeyUp)
-                break
-            case 95:
-                cancelAnimationFrame(idM)
-                cancelAnimationFrame(idW)
-                idB = requestAnimationFrame(sonicBored)
-                $('#space').animate({
-                    backgroundColor: '#000000'
-                }, 1500)
-                $('#space').fadeIn(1500)
-                break
-            case 100:
-                cancelAnimationFrame(idB)
-                cancelAnimationFrame(idMU)
-                snowBack.pause()
-                //idS = setInterval(animate, 500)
-                break
+                case 45:
+                    $('#space').animate({
+                        backgroundColor: '#0a15db'
+                    }, 1000)
+                    cancelAnimationFrame(idW)
+                    cancelAnimationFrame(idM)
+                    //clearInterval(idS)
+                    $('#space').fadeOut(1000)
+                    break
+                case 52:
+                    $('#moon').fadeOut(1500)
+                    idMD = requestAnimationFrame(monkeyDown)
+                    cancelAnimationFrame(idB)
+                    idW = requestAnimationFrame(sonicWalk)
+                    idM = requestAnimationFrame(moveSonicRight)
+                    snowBack.play()
+                    break
+                case 62:
+                    cancelAnimationFrame(idMD)
+                    idMU = requestAnimationFrame(monkeyUp)
+                    break
+                case 78:
+                    cancelAnimationFrame(idMU)
+                    idMD = requestAnimationFrame(monkeyDown)
+                    break
+                case 90:
+                    $('#moon').fadeIn(5000)
+                    cancelAnimationFrame(idMD)
+                    idMU = requestAnimationFrame(monkeyUp)
+                    break
+                case 95:
+                    cancelAnimationFrame(idM)
+                    cancelAnimationFrame(idW)
+                    idB = requestAnimationFrame(sonicBored)
+                    $('#space').animate({
+                        backgroundColor: '#000000'
+                    }, 1500)
+                    $('#space').fadeIn(1500)
+                    break
+                case 100:
+                    cancelAnimationFrame(idB)
+                    cancelAnimationFrame(idMU)
+                    snowBack.pause()
+                    //idS = setInterval(animate, 500)
+                    break
             }
             ctx.fillRect(0, 0, 40, 40)
             ctxLune.fillRect(0, 0, 40, 40)
