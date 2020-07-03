@@ -3,8 +3,7 @@ var express = require('express'),
   geoip = require('geoip-lite'),
   router = express.Router()
 
-var expressSessionFileStore = FileStore(session),
-  sess = {
+var sess = {
     genid: function (req) {
       return uid.sync(18)
     },
