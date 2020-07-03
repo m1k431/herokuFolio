@@ -3,6 +3,27 @@ var express = require('express'),
   geoip = require('geoip-lite'),
   router = express.Router()
 
+var expressSessionFileStore = FileStore(session),
+  sess = {
+    genid: function (req) {
+      return uid.sync(18)
+    },
+    store: new FileStore(),
+    resave: true,
+    saveUninitialized: true,
+    secret: 'qwerty',
+    cookie: {
+      expires: datetime.setUTCFullYear(datetime.getFullYear() + 1),
+      maxage: ms('3600 days')
+    },
+    sessionID: 0,
+    horodate: '',
+    ip: '',
+    geoloc: {},
+    pathname: '',
+    nbViews: []
+  }
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   datetime = new Date()
