@@ -1,7 +1,9 @@
 var express = require('express'),
   parseurl = require('parseurl'),
   geoip = require('geoip-lite'),
-  router = express.Router()
+  router = express.Router(),
+  sess = req.session
+
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
