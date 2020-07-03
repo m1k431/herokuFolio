@@ -1,5 +1,6 @@
 var express = require('express'),
   parseurl = require('parseurl'),
+  geoip = require('geoip-lite'),
   router = express.Router()
 
 /* GET home page. */
