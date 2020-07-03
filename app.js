@@ -19,7 +19,7 @@ Date.prototype.getSecondsFormatted = function () {
   return seconds < 10 ? '0' + seconds : seconds
 }
 
-const createError = require('http-errors'),
+var createError = require('http-errors'),
   express = require('express'),
   app = express(),
   server = require('http').createServer(app),
