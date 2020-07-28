@@ -330,6 +330,11 @@ template {
   display: none;
 }
 
+@font-face {
+  font-family: "ibm";
+  src: url(/static/fonts/IBMLogo.ttf);
+  font-weight: bold;
+}
 #s0leil,
 #jugglejungle {
   display: none;
@@ -340,18 +345,41 @@ template {
 }
 
 .css3buttonRed, .css3button {
-  width: 70px;
+  width: 75px;
   border-radius: 28px;
-  padding: 5px 2px 7px 2px;
+  padding: 5px 2px 5px 2px;
+}
+
+body,
+html {
+  height: 100%;
 }
 
 body {
-  background-color: rgba(19, 42, 121, 0.773);
-  height: 100%;
+  align-items: center;
+  background-color: rgba(2, 106, 243, 0.99);
 }
 
-html {
+button, input {
+  overflow: visible;
+  max-width: 300px;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.content {
+  display: table;
   height: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0px;
 }
 
 iframe {
@@ -366,7 +394,6 @@ iframe {
 
 #INDEX {
   border: 1px solid white;
-  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   text-align: center;
   width: 90%;
@@ -414,10 +441,12 @@ h2.how {
 
 h1,
 h2,
+h3,
+h4,
 nav {
   color: white;
   text-align: center;
-  font-family: monospace;
+  font-family: "ibm";
 }
 
 span {
@@ -464,7 +493,6 @@ a {
   margin-bottom: 10px;
   background: transparent;
   border: 1px solid white;
-  font-family: monospace;
 }
 
 .css3but:hover {
@@ -473,6 +501,8 @@ a {
 }
 
 .css3button {
+  font-family: "ibm";
+  font-size: 1em;
   background-image: linear-gradient(to bottom, rgba(52, 152, 219, 0.901), rgba(19, 43, 121, 0.5));
 }
 
@@ -487,22 +517,15 @@ a {
   margin-left: 5px;
   margin-right: 5px;
   color: white;
-  font-size: 1.1em;
+  font-size: 1em;
   text-align: center;
-  font-family: monospace;
-  background-image: linear-gradient(to bottom, rgba(139, 47, 47, 0.9), rgba(129, 44, 44, 0.5));
+  font-family: "ibm";
+  background-image: linear-gradient(to bottom, rgba(221, 60, 60, 0.9), rgba(221, 60, 60, 0.9));
 }
 
 .css3buttonRed:hover {
-  background-image: linear-gradient(to bottom, rgba(253, 60, 60, 0.8), rgba(253, 60, 60, 0.3));
+  background-image: linear-gradient(to bottom, rgba(253, 60, 60, 0.8), rgba(230, 49, 49, 0.9));
   text-decoration: none;
-}
-
-.content {
-  display: table;
-  height: 100%;
-  width: 94%;
-  margin-left: 3%;
 }
 
 .table-cell {

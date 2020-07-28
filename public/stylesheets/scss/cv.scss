@@ -89,7 +89,7 @@ html {
 .titreH3 {
   color: white;
   text-transform: uppercase;
-  margin-top: 0em;
+  margin-top: 0.4em;
   margin-bottom: 0em;
   font-size: 1em;
 }
@@ -226,9 +226,9 @@ p.flags {
 
 .foto {
   position: relative;
-  margin: 3px;
-  text-align: right;
+  margin: 1%;
   border-radius: 10px;
+  height: 98%;
   float: right;
 }
 
@@ -257,7 +257,7 @@ p.flags {
 .competences {
   border: 1px solid #ffffff;
   color: rgba(0, 0, 0, 0.9);
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   margin: 1%;
   text-align: center;
@@ -267,7 +267,7 @@ p.flags {
 
 .competen {
   border: 1px solid #ffffff;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
   color: rgba(0, 0, 0, 0.9);
   border-radius: 10px;
   margin: 1%;
@@ -403,7 +403,7 @@ p.flags {
 //expériences
 .infojob {
   font-family: monospace;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 .titreJob {
@@ -536,6 +536,7 @@ p.flags {
 
 #scoreForm {
   width: 80%;
+  max-width: '400px';
   display: none;
   vertical-align: middle;
   margin-left: 10%;

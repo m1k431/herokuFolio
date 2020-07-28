@@ -24,7 +24,7 @@ const jeuBreaker = function () {
         $('.english').hide()
         $('.spanish').hide()
         $('.french').hide()
-        $('#competen').css('height', 'auto')
+        //$('#competen').css('height', 'auto')
         $('.french').fadeIn()
     }
     window.document.getElementById('english').onclick = () => {
@@ -32,9 +32,10 @@ const jeuBreaker = function () {
         $('.french').hide()
         $('.spanish').hide()
         $('.english').hide()
+        $('#competen').css('height', 'auto')
         $('.english').fadeIn()
     }
-    
+
     //_____________________________Click_on_START__________________________________________________________________________
     var bStart = window.document.getElementById('metier')
     bStart.addEventListener('click', varsStart, true)
@@ -43,15 +44,16 @@ const jeuBreaker = function () {
         const AudioContext = window.AudioContext || window.webkitAudioContext
         const context = new AudioContext()
         var audioStack
-        var pongA = './sound/pongA.mp3'
-        var pongB = './sound/pongB.mp3'
-        var pongC = './sound/pongC.mp3'
-        //var start = './static/sound/start.mp3'
+        var pongA = './public/sound/pongA.mp3'
+        var pongB = './public/sound/pongB.mp3'
+        var pongC = './public/sound/pongC.mp3'
+        var start = './public/sound/start.mp3'
         //ghibertoStyle
-        var start = './sound/ghibertoRJ45.mp3'
-        //var flagS = './static/sound/flagS.mp3'
-        var youWin = './sound/youWin.mp3'
-        var miss = './sound/miss.mp3'
+        //var start = './public/sound/ghibertoRJ45.mp3'
+        play(start)
+        //var flagS = './public/sound/flagS.mp3'
+        var youWin = './public/sound/youWin.mp3'
+        var miss = './public/sound/miss.mp3'
         var score = 0
         var combo = 1
         var clickMove = false
@@ -60,7 +62,6 @@ const jeuBreaker = function () {
         $('#highScore').hide()
         $('#complementaire').hide()
         $('#linkedIn').fadeIn(2000)
-        play(start)
 
         //____________________INITIALISATION ENVIRONNEMENT________________________________________________________________
         var competences = window.document.getElementById('competen')
@@ -79,7 +80,29 @@ const jeuBreaker = function () {
         $('#metier > h1').text('SCORE: ' + score).fadeIn(375)
         //var linkOff = $('#linkedIn').offset()
 
-        //________________________________________DIV BALL SPRITE_____________________________________________
+        //________________________________________DIV FOOTBALL SPRITE_____________________________________________
+        var divSprite = window.document.createElement('div')
+        divSprite.id = 'divSprite'
+        divSprite.className = 'divsprite'
+        divSprite.style.position = 'absolute'
+        divSprite.style.height = '25px'
+        divSprite.style.width = '25px'
+        divSprite.style.overflow = 'hidden'
+        competences.appendChild(divSprite)
+
+        //________________________________________footBall Sprite_________________________________________________
+        var imgSoccer = window.document.createElement('img')
+        imgSoccer.id = 'imgSoccer'
+        imgSoccer.className = 'imgsoccer'
+        imgSoccer.style.position = 'absolute'
+        imgSoccer.style.height = '100px'
+        imgSoccer.style.left = '-13px'
+        imgSoccer.style.top = '-px'
+        imgSoccer.src = '/public/images/soccerBall.png'
+        imgSoccer.style.backgroundColor = 'none'
+        divSprite.appendChild(imgSoccer)
+        /*
+        //________________________________________DIV SPACE BALL SPRITE_____________________________________________
         var divSprite = window.document.createElement('div')
         divSprite.id = 'divSprite'
         divSprite.className = 'divsprite'
@@ -91,8 +114,8 @@ const jeuBreaker = function () {
         divSprite.style.borderRadius = '20px'
         divSprite.style.overflow = 'hidden'
         competences.appendChild(divSprite)
-
-        //________________________________________Ball Sprite_________________________________________________
+        
+        //________________________________________SPACE Ball Sprite_________________________________________________
         var imgSoccer = window.document.createElement('img')
         imgSoccer.id = 'imgSoccer'
         imgSoccer.className = 'imgsoccer'
@@ -100,10 +123,10 @@ const jeuBreaker = function () {
         imgSoccer.style.height = '500px'
         imgSoccer.style.left = '-4px'
         imgSoccer.style.top = '-142.5px'
-        imgSoccer.src = '/images/ball.png'
+        imgSoccer.src = '/public/images/ball.png'
         imgSoccer.style.backgroundColor = 'none'
         divSprite.appendChild(imgSoccer)
-
+        */
         //________________________________________Paddle + hauteur breaker_____________________________________
         linkedIn.className = 'linkedinT'
         window.document.getElementById('linkedIn').style.left = competences.offsetWidth / 2 - 40 + 'px'
@@ -204,13 +227,14 @@ const jeuBreaker = function () {
         var eTouchMove = function (e) {
             touchobj = e.changedTouches[0] // reference first touch point for this event
             var dist = parseInt(touchobj.pageX) - startx // calculate dist traveled by touch point
-            box2.style.left = ((boxleft + dist > competences.scrollWidth - linkedIn.scrollWidth) ? competences.scrollWidth - linkedIn.scrollWidth/2 : (boxleft + dist - linkedIn.scrollWidth/2 < 0 ) ? linkedIn.scrollWidth/2 : boxleft + dist + linkedIn.scrollWidth/2) + competences.offsetWidth / 40 + 'px'
+            box2.style.left = ((boxleft + dist > competences.scrollWidth - linkedIn.scrollWidth) ? competences.scrollWidth - linkedIn.scrollWidth / 2 : (boxleft + dist - linkedIn.scrollWidth / 2 < 0) ? linkedIn.scrollWidth / 2 : boxleft + dist + linkedIn.scrollWidth / 2) + competences.offsetWidth / 40 + 'px'
             e.preventDefault()
         }
         window.document.addEventListener('touchmove', eTouchMove, true)
         bStart.removeEventListener('click', varsStart, true)
 
         //____________________________________ANIMATION_Ball_Sprite______________________________________
+        /*
         var animSprite = function () {
             if (parseFloat(imgSoccer.style.left) > -920) {
                 imgSoccer.style.left = parseFloat(imgSoccer.style.left) - 27.8 + 'px'
@@ -218,7 +242,20 @@ const jeuBreaker = function () {
                 imgSoccer.style.left = -4 + 'px'
             }
             idL = requestAnimationFrame(animSprite)
+            */
+        var animSprite = function () {
+            if (parseFloat(imgSoccer.style.left) > -72) {
+                imgSoccer.style.left = parseFloat(imgSoccer.style.left) - 39 + 'px'
+            } else if (parseFloat(imgSoccer.style.top) > -50) {
+                imgSoccer.style.left = -13 + 'px'
+                imgSoccer.style.top = parseFloat(imgSoccer.style.top) - 40 + 'px'
+            } else {
+                imgSoccer.style.left = -13 + 'px'
+                imgSoccer.style.top = -18 + 'px'
+            }
         }
+        setInterval(animSprite, 50)
+
         var animMoveBall = function () {
             requestAnimationFrame(moveBall)
             clickMove = false
@@ -296,14 +333,18 @@ const jeuBreaker = function () {
                 i--
             }
         }
-
+        let fuse = 1
         //________________________________________________Verif/Gestion_YouWIN______________________________________________________________________________
         var jeuTermine = function () {
             var mesInfosT = window.document.getElementsByClassName('infoT')
-            if (mesInfosT.length < 1) {
+            var competences = window.document.getElementById('competen')
+            if (!mesInfosT.length && fuse == 1) {
+                fuse--
                 cancelAnimationFrame(idAni)
-                cancelAnimationFrame(idR)
+                //cancelAnimationFrame(idR)
                 cancelAnimationFrame(idL)
+                cancelAnimationFrame(animMoveBall)
+                cancelAnimationFrame(moveBall)
                 window.document.removeEventListener('mousemove', movepaddle, true)
                 window.document.removeEventListener('click', eTouchStart, true)
                 window.document.removeEventListener('click', eTouchMove, true)
@@ -322,6 +363,7 @@ const jeuBreaker = function () {
                 $('#skills').hide()
                 $('#score').fadeIn()
                 $('#scoreForm').fadeIn()
+                $('.background').css('height', '1400px')
             }
         }
 
@@ -411,9 +453,9 @@ const jeuBreaker = function () {
                     //------------Short hand style if---------------
                     score >= 100 ? score -= 100 : score = 0
                     //----------------------------------------------
-                    $('#metier > h1').text('SCORE: ' + score).css({
+                    $('#metier > h2').text(score).css({
                         'color': 'red',
-                        'font-size': '125%'
+                        'font-size': '1.5em'
                     }).fadeIn(375)
                     combo = 1
                     play(miss)
@@ -430,12 +472,11 @@ const jeuBreaker = function () {
                 if (clickMove == false) {
                     animMoveBall()
                     window.document.removeEventListener('click', animMoveBall, true)
-                    $('#metier > h1').text('SCORE: ' + score).css({
+                    $('#metier > h2').text(score).css({
                         'color': 'black',
-                        'font-size': '125%'
+                        'font-size': '1.5em'
                     }).fadeIn(375)
                 } else {
-                    cancelAnimationFrame(idAni)
                     window.document.addEventListener('click', animMoveBall, true)
                 }
             }
