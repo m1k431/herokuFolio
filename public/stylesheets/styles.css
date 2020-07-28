@@ -332,7 +332,7 @@ template {
 
 @font-face {
   font-family: "ibm";
-  src: url(/static/fonts/IBMLogo.ttf);
+  src: url(/fonts/IBMLogo.ttf);
   font-weight: bold;
 }
 #s0leil,
