@@ -1,8 +1,8 @@
 const monIntro = function () {
     //Bouton de Controle play/pause video jonglage 
     var m4vide0 = document.getElementById('jugglejungle')
-    m4vide0.playbackRate = 0.75
-    /*var BtnJs0nPl4Y = document.getElementById('BtnJs0nPl4Y')
+    m4vide0.playbackRate = 0.85
+    var BtnJs0nPl4Y = document.getElementById('BtnJs0nPl4Y')
     BtnJs0nPl4Y.innerHTML = 'PAUSE'
     BtnJs0nPl4Y.addEventListener('click', () => {
         if (m4vide0.paused) {
@@ -13,7 +13,7 @@ const monIntro = function () {
             BtnJs0nPl4Y.innerHTML = 'PLAY'
         }
     })
-    BtnJs0nPl4Y.click()*/
+    BtnJs0nPl4Y.click()
     $('#jugglejungle').fadeIn(100)
 
 
@@ -46,16 +46,16 @@ const monIntro = function () {
     mon360.muted = true
     mon360.loop = true
     var src360 = document.createElement('source')
-    src360.src = '/images/360backnoreverse.webm'
+    src360.src = '/static/img/360backnoreverse.webm'
     src360.type = 'video/webm'
     //ATARIIIIIIIIII
     var divAtari = document.createElement('div')
     divAtari.style.position = 'absolute'
-    divAtari.style.top = '80px'
+    divAtari.style.top = '100px'
     divAtari.style.right = '5px'
     var m0nimg = document.createElement('img')
     m0nimg.style.position = 'relative'
-    m0nimg.src = '/images/Atari.webp'
+    m0nimg.src = '/static/img/Atari.webp'
     //m0nimg.style.top = '36%'
     //m0nimg.style.right = '6%'
     m0nimg.id = 'atari'
@@ -71,13 +71,7 @@ const monIntro = function () {
     m0nCiel.style.backgroundColor = 'blue'
     m0nCiel.id = 'ci3l'
     m0nsoleil.appendChild(m0nCiel)
-    var m0nCanva = document.createElement('canvas')
-    m0nCanva.width = 40
-    m0nCanva.height = 40
-    m0nCanva.style.width = '40px'
-    m0nCanva.id = 'c4nv4'
-    m0nCanva.style.position = 'absolute'
-    m0nsoleil.appendChild(m0nCanva)
+    //space
     var myStars = document.createElement('canvas')
     myStars.width = 600
     myStars.height = 400
@@ -90,6 +84,15 @@ const monIntro = function () {
     myStars.style.top = '0px'
     myStars.style.left = '0px'
     m0nsoleil.appendChild(myStars)
+    //soleil
+    var m0nCanva = document.createElement('canvas')
+    m0nCanva.width = 40
+    m0nCanva.height = 40
+    m0nCanva.style.width = '40px'
+    m0nCanva.id = 'c4nv4'
+    m0nCanva.style.position = 'absolute'
+    m0nsoleil.appendChild(m0nCanva)
+    //Lune
     var maLune = document.createElement('canvas')
     maLune.width = 40
     maLune.height = 40
@@ -100,6 +103,17 @@ const monIntro = function () {
     maLune.style.top = '30px'
     maLune.style.right = '10%'
     m0nsoleil.appendChild(maLune)
+    //cloud img
+    var imgCloud = document.createElement('img')
+    imgCloud.id = 'cloud'
+    imgCloud.className = 'cloud'
+    imgCloud.style.position = 'absolute'
+    imgCloud.style.left = '700px'
+    imgCloud.style.top = '-460px'
+    imgCloud.style.height = '200%'
+    imgCloud.src = '/static/img/cloud.png'
+    m0nsoleil.appendChild(imgCloud)
+    //mer
     var m4m3r = document.createElement('canvas')
     m4m3r.width = 600
     m4m3r.height = 400
@@ -109,6 +123,7 @@ const monIntro = function () {
     m4m3r.style.position = 'absolute'
     m4m3r.style.display = 'block'
     m0nsoleil.appendChild(m4m3r)
+    //colline
     var m4colline = document.createElement('canvas')
     m4colline.width = 600
     m4colline.height = 400
@@ -168,7 +183,7 @@ const monIntro = function () {
     imgMonkey.style.position = 'absolute'
     imgMonkey.style.height = '100%'
     imgMonkey.style.left = '-2215px'
-    imgMonkey.src = '/images/monkey.png'
+    imgMonkey.src = '/static/img/monkey.png'
     var imgSonicPalm = document.createElement('img')
     imgSonicPalm.id = 'palmTree'
     imgSonicPalm.className = 'palmTree'
@@ -176,7 +191,7 @@ const monIntro = function () {
     imgSonicPalm.style.height = '65%'
     imgSonicPalm.style.top = '0px'
     imgSonicPalm.style.left = '5px'
-    imgSonicPalm.src = '/images/palmTree.png'
+    imgSonicPalm.src = '/static/img/palmTree.png'
     //SONICCCCCCCCC
     var divSonic = document.createElement('div')
     divSonic.id = 'divSonic'
@@ -195,20 +210,69 @@ const monIntro = function () {
     imgSonic.style.position = 'relative'
     imgSonic.style.left = '-55px'
     imgSonic.style.top = '-21px'
-    imgSonic.src = '/images/sonic2.png'
+    imgSonic.src = '/static/img/sonic2.png'
+    //BIRD div
+    var divBird = document.createElement('div')
+    divBird.id = 'divBird'
+    divBird.className = 'divbird'
+    divBird.style.position = 'absolute'
+    divBird.overflow = 'hidden'
+    divBird.style.height = '24px'
+    divBird.style.width = '24px'
+    divBird.style.top = '240px'
+    divBird.style.left = '-15%'
+    divBird.style.overflow = 'hidden'
+    //bird img
+    var imgBird = document.createElement('img')
+    imgBird.id = 'bird'
+    imgBird.className = 'bird'
+    imgBird.style.position = 'relative'
+    imgBird.style.left = '0px'
+    imgBird.style.top = '0px'
+    imgBird.style.height = '100%'
+    imgBird.src = '/static/img/twitter-bird-sprite.png'
+
     m0nsoleil.appendChild(divMonkey)
-    divMonkey.appendChild(imgMonkey)
-    divSonic.appendChild(imgSonic)
     m0nsoleil.appendChild(imgSonicPalm)
+    divMonkey.appendChild(imgMonkey)
     m0nsoleil.appendChild(divAtari)
+    m0nsoleil.appendChild(divBird)
+    m0nsoleil.appendChild(divSonic)
+    divBird.appendChild(imgBird)
+    divSonic.appendChild(imgSonic)
     divAtari.id = 'atari'
     mon360.appendChild(src360)
     divAtari.appendChild(mon360)
     divAtari.appendChild(m0nimg)
-    m0nsoleil.appendChild(divSonic)
     var bool1 = false
     var bool2 = false
-    var idB, idW, idMU, idMD, idS, idM
+    var bool3 = false
+    var idB, idW, idMU, idMD, idS, idM, idBird, idCloud
+    let i = 4
+    var moveCloud = function () {
+        if (parseFloat(imgCloud.style.left) > -1050) {
+            imgCloud.style.left = parseFloat(imgCloud.style.left) - 0.2 + 'px'
+        }
+        else {
+            imgCloud.style.left = '700px'
+        }
+        idCloud = requestAnimationFrame(moveCloud)
+
+    }
+    var animBird = function () {
+        if (bool3 == false) {
+            imgBird.style.left = '0px'
+            bool3 = true
+        }
+        else {
+            if (parseFloat(imgBird.style.left) > -65) {
+                imgBird.style.left = parseFloat(imgBird.style.left) - 24 + 'px'
+            }
+            else bool3 = false
+        }
+        idBird = requestAnimationFrame(animBird)
+    }
+
     var sonicBored = function () {
         if (bool1 == false) {
             imgSonic.style.left = '-55px'
@@ -241,9 +305,13 @@ const monIntro = function () {
 
 
     var moveSonicRight = function () {
-        if (parseFloat(divSonic.style.left) < 100) divSonic.style.left = parseFloat(divSonic.style.left) + 0.2 + '%'
+        if (parseFloat(divSonic.style.left) < 100) {
+            divSonic.style.left = parseFloat(divSonic.style.left) + 0.2 + '%'
+            divBird.style.left = parseFloat(divBird.style.left) + 0.2 + '%'
+        }
         else {
             divSonic.style.left = '-10%'
+            divBird.style.left = '-15%'
         }
         idM = requestAnimationFrame(moveSonicRight)
     }
@@ -271,7 +339,7 @@ const monIntro = function () {
         }
         idMU = requestAnimationFrame(monkeyUp)
     }
-    var c00rdX = 45
+    var c00rdX = 20
     var c00rdY = 2
 
     var ctxLune = maLune.getContext('2d')
@@ -290,9 +358,11 @@ const monIntro = function () {
 
     //snowback control
     let snowBack = document.getElementById('snowB')
+    idBird = requestAnimationFrame(animBird)
+    idCloud = requestAnimationFrame(moveCloud)
 
     var dessinerM0n = (/*m0ntimestamp*/) => {
-        if (c00rdX < 110) {
+        if (c00rdX < 131) {
             c00rdY = Math.cos(c00rdX / 24) * 54
             m0nCanva.style.top = c00rdY * 1.1 + 60 + '%'
             m0nCanva.style.left = c00rdX * 1.3 - 50 + '%'
@@ -302,14 +372,12 @@ const monIntro = function () {
                 case 45:
                     $('#space').animate({
                         backgroundColor: '#0a15db'
-                    }, 1000)
+                    }, 500)
                     cancelAnimationFrame(idW)
                     cancelAnimationFrame(idM)
-                    //clearInterval(idS)
-                    $('#space').fadeOut(1000)
+                    $('#moon').fadeOut(1000)
                     break
                 case 52:
-                    $('#moon').fadeOut(1500)
                     idMD = requestAnimationFrame(monkeyDown)
                     cancelAnimationFrame(idB)
                     idW = requestAnimationFrame(sonicWalk)
@@ -325,7 +393,6 @@ const monIntro = function () {
                     idMD = requestAnimationFrame(monkeyDown)
                     break
                 case 90:
-                    $('#moon').fadeIn(5000)
                     cancelAnimationFrame(idMD)
                     idMU = requestAnimationFrame(monkeyUp)
                     break
@@ -335,14 +402,16 @@ const monIntro = function () {
                     idB = requestAnimationFrame(sonicBored)
                     $('#space').animate({
                         backgroundColor: '#000000'
-                    }, 1500)
-                    $('#space').fadeIn(1500)
+                    }, 500)
                     break
                 case 100:
                     cancelAnimationFrame(idB)
                     cancelAnimationFrame(idMU)
+                    //cancelAnimationFrame(idCloud)
                     snowBack.pause()
-                    //idS = setInterval(animate, 500)
+                    break
+                case 105:
+                    $('#moon').fadeIn(500)
                     break
             }
             ctx.fillRect(0, 0, 40, 40)
@@ -350,7 +419,7 @@ const monIntro = function () {
             c00rdX = (c00rdX * 10 + 0.1 * 10) / 10
         }
         else {
-            c00rdX = 45
+            c00rdX = 20
         }
         requestAnimationFrame(dessinerM0n)
     }
