@@ -332,13 +332,12 @@ template {
 
 @font-face {
   font-family: "ibm";
-  src: url(/fonts/IBMLogo.ttf);
+  src: url(/static/fonts/IBMLogo.ttf);
   font-weight: bold;
 }
-#s0leil,
-#jugglejungle {
+#jugglejungle,
+#s0leil {
   display: none;
-  border: 0.7px solid black;
   width: 90%;
   border-radius: 10px;
   margin: auto;
@@ -350,17 +349,13 @@ template {
   padding: 5px 2px 5px 2px;
 }
 
-body,
-html {
-  height: 100%;
-}
-
 body {
   align-items: center;
   background-color: rgba(2, 106, 243, 0.99);
 }
 
-button, input {
+button,
+input {
   overflow: visible;
   max-width: 300px;
 }
@@ -386,10 +381,20 @@ iframe {
   margin-top: 0.5em;
 }
 
-.hack {
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+.titleNav {
+  margin-top: 0.9em;
+}
+
+#highScore {
+  margin-bottom: 1em;
+}
+
+.nom {
+  font-size: 1.3em;
+}
+
+#subScore {
+  font-size: 1.3em;
 }
 
 #INDEX {
@@ -399,44 +404,26 @@ iframe {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0.5%;
-  margin-top: 0.5%;
+  vertical-align: middle;
 }
 
 #CV {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 0.5%;
   margin-top: 0.5%;
   text-align: center;
 }
 
-#ADM1N {
-  border: 1px solid white;
-  background-color: rgba(183, 210, 214, 0.1);
-  border-radius: 10px;
-  margin-bottom: 2.5%;
-  margin-top: 0.5%;
-  text-align: center;
+.me {
+  margin: 0.3em;
+  padding-bottom: 1em;
+  padding-top: 1em;
 }
 
-h1.liens {
-  margin-bottom: 0;
-}
-
-.auteurs {
-  margin-top: 0;
-  font-size: 1em;
-  color: white;
-}
-
-p.first {
-  margin-top: 0.3em;
-}
-
-h2.how {
-  margin-bottom: 0;
+.metoo {
+  padding-bottom: 0.3em;
+  padding-top: 0.3em;
 }
 
 h1,
@@ -447,10 +434,6 @@ nav {
   color: white;
   text-align: center;
   font-family: "ibm";
-}
-
-span {
-  font-size: 1.2em;
 }
 
 nav ul {
@@ -482,7 +465,7 @@ a {
   margin-left: 5px;
   margin-right: 5px;
   color: white;
-  font-size: 1.1em;
+  font-size: 1em;
   text-align: center;
   font-family: monospace;
 }
@@ -493,6 +476,7 @@ a {
   margin-bottom: 10px;
   background: transparent;
   border: 1px solid white;
+  font-size: 0.5em;
 }
 
 .css3but:hover {
@@ -540,27 +524,11 @@ a {
   margin-right: auto;
   margin-top: 60px;
   margin-bottom: 60px;
-}
-
-#m0ncentrageAdmin {
-  display: block;
-  position: relative;
-  margin-left: 1%;
-  margin-right: 1%;
-  margin-top: 70px;
-  margin-bottom: 100px;
+  max-width: 800px;
 }
 
 .m0ncentrageParafoot {
   border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2.5%;
-  margin-top: 0.5%;
-  text-align: center;
-}
-
-.m0ncentrage404 {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 2.5%;
@@ -576,6 +544,11 @@ a {
   margin: 1%;
 }
 
+#jugglejungle,
+#s0leil {
+  margin-top: 1em;
+}
+
 #BtnJs0nPl4Y {
   position: relative;
   background-color: transparent;
@@ -583,7 +556,7 @@ a {
   width: 18%;
   margin-left: 39%;
   margin-right: 39%;
-  margin-top: 1%;
+  top: -40px;
   font-family: monospace;
   border-radius: 28px;
   font-size: 1em;
@@ -631,11 +604,61 @@ a {
   margin-right: 8px;
 }
 
-.myclock {
-  position: absolute;
-  font-size: 1em;
-  color: #ffffff;
-  top: 5px;
+.complementaireT {
+  margin: 1%;
+  border: 1px solid #ffffff;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
 }
 
-/*# sourceMappingURL=styles.css.map */
+.linkedinT {
+  display: none;
+  border: 2px solid #ffffff;
+  position: absolute;
+  border-radius: 10px;
+  height: 25px;
+  width: 105px;
+  margin: 5px;
+  background-color: black;
+}
+
+.experiencesT {
+  display: none;
+  border: 1px solid #ffffff;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5%;
+  margin-top: 0.5%;
+  text-align: center;
+  transform: scale(0, 0) translate(0%, 400%);
+}
+
+.competencesJeu {
+  border: 1px solid #ffffff;
+  color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.5%;
+  margin-top: 0.5%;
+  padding-bottom: 175px;
+  text-align: center;
+}
+
+.auteurs {
+  margin-top: 0;
+  margin-bottom: 1em;
+  font-size: 1em;
+  color: #fff;
+  width: 40%;
+  margin-left: 30%;
+  border-radius: 10px;
+}
+
+.refs {
+  margin: 5px;
+}
