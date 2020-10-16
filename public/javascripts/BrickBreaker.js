@@ -44,16 +44,16 @@ const jeuBreaker = function () {
         const AudioContext = window.AudioContext || window.webkitAudioContext
         const context = new AudioContext()
         var audioStack
-        var pongA = './sound/pongA.mp3'
-        var pongB = './sound/pongB.mp3'
-        var pongC = './sound/pongC.mp3'
-        var start = './sound/start.mp3'
+        var pongA = './static/sound/pongA.mp3'
+        var pongB = './static/sound/pongB.mp3'
+        var pongC = './static/sound/pongC.mp3'
+        var start = './static/sound/start.mp3'
         //ghibertoStyle
-        //var start = './sound/ghibertoRJ45.mp3'
+        //var start = './static/sound/ghibertoRJ45.mp3'
         play(start)
-        //var flagS = './sound/flagS.mp3'
-        var youWin = './sound/youWin.mp3'
-        var miss = './sound/miss.mp3'
+        //var flagS = './static/sound/flagS.mp3'
+        var youWin = './static/sound/youWin.mp3'
+        var miss = './static/sound/miss.mp3'
         var score = 0
         var combo = 1
         var clickMove = false
@@ -77,7 +77,8 @@ const jeuBreaker = function () {
         clearInterval(idInterBlink)
         $div2blink.removeClass('backgroundRed')
         $div2blink.css('background-color', 'rgba(255, 255, 255, 0.4)')
-        $('#metier > h1').text('SCORE: ' + score).fadeIn(375)
+        $('#metier > h2').text('SCORE: ' + score).fadeIn(375)
+        $('#metier > h2').css('font-size', '1.5em')
         //var linkOff = $('#linkedIn').offset()
 
         //________________________________________DIV FOOTBALL SPRITE_____________________________________________
@@ -98,7 +99,7 @@ const jeuBreaker = function () {
         imgSoccer.style.height = '100px'
         imgSoccer.style.left = '-13px'
         imgSoccer.style.top = '-px'
-        imgSoccer.src = '/images/soccerBall.png'
+        imgSoccer.src = '/static/img/soccerBall.png'
         imgSoccer.style.backgroundColor = 'none'
         divSprite.appendChild(imgSoccer)
         /*
@@ -123,7 +124,7 @@ const jeuBreaker = function () {
         imgSoccer.style.height = '500px'
         imgSoccer.style.left = '-4px'
         imgSoccer.style.top = '-142.5px'
-        imgSoccer.src = '/images/ball.png'
+        imgSoccer.src = '/static/img/ball.png'
         imgSoccer.style.backgroundColor = 'none'
         divSprite.appendChild(imgSoccer)
         */
@@ -257,8 +258,8 @@ const jeuBreaker = function () {
         setInterval(animSprite, 50)
 
         var animMoveBall = function () {
-            requestAnimationFrame(moveBall)
             clickMove = false
+            moveBall()
         }
         /*
         var animSpriteR = function() {
@@ -328,26 +329,20 @@ const jeuBreaker = function () {
                     }, 500)
                     mesInfosT[i].className = 'infoJeu'
                     score += 50 * combo
-                    $('#metier > h1').text('SCORE: ' + score).fadeIn(375)
                 }
                 i--
             }
         }
         let fuse = 1
+        var stopEvent = false
         //________________________________________________Verif/Gestion_YouWIN______________________________________________________________________________
         var jeuTermine = function () {
             var mesInfosT = window.document.getElementsByClassName('infoT')
             var competences = window.document.getElementById('competen')
             if (!mesInfosT.length && fuse == 1) {
                 fuse--
-                cancelAnimationFrame(idAni)
                 //cancelAnimationFrame(idR)
-                cancelAnimationFrame(idL)
-                cancelAnimationFrame(animMoveBall)
-                cancelAnimationFrame(moveBall)
-                window.document.removeEventListener('mousemove', movepaddle, true)
-                window.document.removeEventListener('click', eTouchStart, true)
-                window.document.removeEventListener('click', eTouchMove, true)
+                stopEvent = true
                 play(youWin)
                 competences.removeChild(divSprite)
                 //$('#divSprite').hide()
@@ -363,6 +358,25 @@ const jeuBreaker = function () {
                 $('#skills').hide()
                 $('#score').fadeIn()
                 $('#scoreForm').fadeIn()
+                $.ajax({
+                    type: 'GET',
+                    url: '/highscore',
+                    dataType: 'json',
+                    success: function (reponse) {
+                        console.log('GET success: ' + reponse)
+                        var tbodyEl = $('tbody')
+                        tbodyEl.html('')
+                        reponse.forEach(function (score) {
+                            tbodyEl.append('\
+                            <tr>\
+                            <td>' + score.name + '</td>\
+                            <td>' + score.score + '</td>\
+                            </tr>\
+                            ')
+                        })
+                    }
+                })
+                $('#highScore').fadeIn()
                 $('.background').css('height', '1400px')
             }
         }
@@ -372,7 +386,7 @@ const jeuBreaker = function () {
             event.preventDefault()
             console.log($('#postName').val() + '/' + score)
             $('#scoreForm').hide()
-            $('#highScore').fadeIn()
+            //$('#highScore').fadeIn()
             $.ajax({
                 type: 'POST',
                 url: '/highscore',
@@ -405,84 +419,111 @@ const jeuBreaker = function () {
             })
         })
 
+        //FPS control
+        var fps = 60;
+        var now;
+        var then = Date.now();
+        var interval = 1000 / fps;
+        var delta;
 
         //_____________________MAIN()_____Déplacement_balle_dans_Environnement__________________________
         var moveBall = function () {
-            var ballSpeed = 3
-            window.document.addEventListener('mousemove', movepaddle, true)
-            if (!youwin || !clickMove) {
-                divSprite.style.top = ballY + 'px'
-                //ball move left right limit
-                if (ballX < competences.offsetLeft + competences.offsetWidth - divSprite.offsetWidth && !ballLeft) {
-                    //idR = requestAnimationFrame(animSpriteR)
-                    if (angle) {
-                        ballX = ballX + 1 * ballSpeed
-                        divSprite.style.left = ballX + 'px'
-                    } else {
-                        ballX = ballX + 2 * ballSpeed
-                        divSprite.style.left = ballX + 'px'
-                    }
-                } else if (ballX > competences.offsetLeft) {
-                    ballLeft = true
-                    //idL = requestAnimationFrame(animSprite)
-                    if (angle) {
-                        ballX = ballX - 1 * ballSpeed
-                        divSprite.style.left = ballX + 'px'
-                    } else {
-                        ballX = ballX - 2 * ballSpeed
-                        divSprite.style.left = ballX + 'px'
-                    }
-                } else {
-                    ballLeft = false
-                    play(pongA)
-                }
-                //ball move up down limit
-                if (ballY >= competences.offsetTop && !ballDown) {
-                    ballY = ballY - 2 * ballSpeed
-                    divSprite.style.top = ballY + 'px'
-                } else if (ballY < competences.offsetTop + competences.offsetHeight - 30) {
-                    ballDown = true
-                    ballY = ballY + 2 * ballSpeed
-                    divSprite.style.top = ballY + 'px'
-                    if (ballY + divSprite.offsetHeight > linkedIn.offsetTop && ballY < linkedIn.offsetTop + 5)
-                        paddle()
-                } else {
-                    ballDown = false
-                    clickMove = true
-                    combo = 1
-                    //------------Short hand style if---------------
-                    score >= 100 ? score -= 100 : score = 0
-                    //----------------------------------------------
-                    $('#metier > h2').text(score).css({
-                        'color': 'red',
-                        'font-size': '1.5em'
-                    }).fadeIn(375)
-                    combo = 1
-                    play(miss)
-                }
-                if (ballX + divSprite.offsetWidth > competences.offsetLeft + competences.offsetWidth) {
-                    play(pongA)
-                }
-                if (ballY < competences.offsetTop) {
-                    play(pongA)
-                }
-                brickBroken()
-                jeuTermine()
+            idAni = requestAnimationFrame(moveBall)
 
-                if (clickMove == false) {
-                    animMoveBall()
-                    window.document.removeEventListener('click', animMoveBall, true)
-                    $('#metier > h2').text(score).css({
-                        'color': 'black',
-                        'font-size': '1.5em'
-                    }).fadeIn(375)
-                } else {
-                    window.document.addEventListener('click', animMoveBall, true)
+            //fps control
+            now = Date.now()
+            delta = now - then
+            if (delta > interval) {
+                then = now - (delta % interval)
+
+                //code for drawing the frame    
+                var ballSpeed = 2
+                window.document.addEventListener('mousemove', movepaddle, true)
+                if (!youwin || !clickMove) {
+                    divSprite.style.top = ballY + 'px'
+                    //ball move left right limit
+                    if (ballX < competences.offsetLeft + competences.offsetWidth - divSprite.offsetWidth && !ballLeft) {
+                        //idR = requestAnimationFrame(animSpriteR)
+                        if (angle) {
+                            ballX = ballX + 1 * ballSpeed
+                            divSprite.style.left = ballX + 'px'
+                        } else {
+                            ballX = ballX + 2 * ballSpeed
+                            divSprite.style.left = ballX + 'px'
+                        }
+                    } else if (ballX > competences.offsetLeft) {
+                        ballLeft = true
+                        //idL = requestAnimationFrame(animSprite)
+                        if (angle) {
+                            ballX = ballX - 1 * ballSpeed
+                            divSprite.style.left = ballX + 'px'
+                        } else {
+                            ballX = ballX - 2 * ballSpeed
+                            divSprite.style.left = ballX + 'px'
+                        }
+                    } else {
+                        ballLeft = false
+                        play(pongA)
+                    }
+                    //ball move up down limit
+                    if (ballY >= competences.offsetTop && !ballDown) {
+                        ballY = ballY - 2 * ballSpeed
+                        divSprite.style.top = ballY + 'px'
+                    } else if (ballY < competences.offsetTop + competences.offsetHeight - 30) {
+                        ballDown = true
+                        ballY = ballY + 2 * ballSpeed
+                        divSprite.style.top = ballY + 'px'
+                        if (ballY + divSprite.offsetHeight > linkedIn.offsetTop && ballY < linkedIn.offsetTop + 5)
+                            paddle()
+                    } else {
+                        ballDown = false
+                        clickMove = true
+                        combo = 1
+                        //------------Short hand style if---------------
+                        score >= 100 ? score -= 100 : score = 0
+                        //----------------------------------------------
+                        $('#metier > h2').text('SCORE: ' + score).css({
+                            'color': 'red',
+                            'font-size': '1.5em'
+                        }).fadeIn(375)
+                        combo = 1
+                        play(miss)
+                    }
+                    if (ballX + divSprite.offsetWidth > competences.offsetLeft + competences.offsetWidth) {
+                        play(pongA)
+                    }
+                    if (ballY < competences.offsetTop) {
+                        play(pongA)
+                    }
+                    brickBroken()
+                    $('#metier > h2').text('SCORE: ' + score).fadeIn()
+                    jeuTermine()
+
+                    if (clickMove == false && fuse == 1) {
+                        //animMoveBall()
+                        //window.document.removeEventListener('click', animMoveBall, true)
+                        $('#metier > h2').text('SCORE: ' + score).css({
+                            'color': 'black',
+                            'font-size': '1.5em'
+                        }).fadeIn(375)
+                    } else {
+                        cancelAnimationFrame(idAni)
+                        window.document.addEventListener('click', animMoveBall, true)
+                    }
+
+                    if (stopEvent) {
+                        window.document.removeEventListener('click', animMoveBall, true)
+                        //cancelAnimationFrame(idAni)
+                        //cancelAnimationFrame(idL)
+                        window.document.removeEventListener('mousemove', movepaddle, true)
+                        window.document.removeEventListener('click', eTouchStart, true)
+                        window.document.removeEventListener('click', eTouchMove, true)
+                    }
+
                 }
             }
         }
-        //_______________________________________Animation_Déplacement_Balle__________________________________________________________
-        idAni = requestAnimationFrame(moveBall)
+        moveBall()
     }
 }
 //_______________________________________Exec_jeuBreaker___________________________________________________________________________________

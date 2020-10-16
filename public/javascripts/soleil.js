@@ -46,7 +46,7 @@ const monIntro = function () {
     mon360.muted = true
     mon360.loop = true
     var src360 = document.createElement('source')
-    src360.src = '/images/360backnoreverse.webm'
+    src360.src = '/static/img/360backnoreverse.webm'
     src360.type = 'video/webm'
     //ATARIIIIIIIIII
     var divAtari = document.createElement('div')
@@ -55,7 +55,7 @@ const monIntro = function () {
     divAtari.style.right = '5px'
     var m0nimg = document.createElement('img')
     m0nimg.style.position = 'relative'
-    m0nimg.src = '/images/Atari.webp'
+    m0nimg.src = '/static/img/Atari.webp'
     //m0nimg.style.top = '36%'
     //m0nimg.style.right = '6%'
     m0nimg.id = 'atari'
@@ -111,7 +111,7 @@ const monIntro = function () {
     imgCloud.style.left = '700px'
     imgCloud.style.top = '-460px'
     imgCloud.style.height = '200%'
-    imgCloud.src = '/images/cloud.png'
+    imgCloud.src = '/static/img/cloud.png'
     m0nsoleil.appendChild(imgCloud)
     //mer
     var m4m3r = document.createElement('canvas')
@@ -183,7 +183,7 @@ const monIntro = function () {
     imgMonkey.style.position = 'absolute'
     imgMonkey.style.height = '100%'
     imgMonkey.style.left = '-2215px'
-    imgMonkey.src = '/images/monkey.png'
+    imgMonkey.src = '/static/img/monkey.png'
     var imgSonicPalm = document.createElement('img')
     imgSonicPalm.id = 'palmTree'
     imgSonicPalm.className = 'palmTree'
@@ -191,7 +191,7 @@ const monIntro = function () {
     imgSonicPalm.style.height = '65%'
     imgSonicPalm.style.top = '0px'
     imgSonicPalm.style.left = '5px'
-    imgSonicPalm.src = '/images/palmTree.png'
+    imgSonicPalm.src = '/static/img/palmTree.png'
     //SONICCCCCCCCC
     var divSonic = document.createElement('div')
     divSonic.id = 'divSonic'
@@ -210,7 +210,7 @@ const monIntro = function () {
     imgSonic.style.position = 'relative'
     imgSonic.style.left = '-55px'
     imgSonic.style.top = '-21px'
-    imgSonic.src = '/images/sonic2.png'
+    imgSonic.src = '/static/img/sonic2.png'
     //BIRD div
     var divBird = document.createElement('div')
     divBird.id = 'divBird'
@@ -230,7 +230,7 @@ const monIntro = function () {
     imgBird.style.left = '0px'
     imgBird.style.top = '0px'
     imgBird.style.height = '100%'
-    imgBird.src = '/images/twitter-bird-sprite.png'
+    imgBird.src = '/static/img/twitter-bird-sprite.png'
 
     m0nsoleil.appendChild(divMonkey)
     m0nsoleil.appendChild(imgSonicPalm)
@@ -249,17 +249,20 @@ const monIntro = function () {
     var bool3 = false
     var idB, idW, idMU, idMD, idS, idM, idBird, idCloud
     let i = 4
+
     var moveCloud = function () {
+        idCloud = requestAnimationFrame(moveCloud)
         if (parseFloat(imgCloud.style.left) > -1050) {
             imgCloud.style.left = parseFloat(imgCloud.style.left) - 0.2 + 'px'
         }
         else {
             imgCloud.style.left = '700px'
         }
-        idCloud = requestAnimationFrame(moveCloud)
 
     }
+
     var animBird = function () {
+        idBird = requestAnimationFrame(animBird)
         if (bool3 == false) {
             imgBird.style.left = '0px'
             bool3 = true
@@ -270,10 +273,10 @@ const monIntro = function () {
             }
             else bool3 = false
         }
-        idBird = requestAnimationFrame(animBird)
     }
 
     var sonicBored = function () {
+        idB = requestAnimationFrame(sonicBored)
         if (bool1 == false) {
             imgSonic.style.left = '-55px'
             imgSonic.style.top = '-21px'
@@ -285,10 +288,10 @@ const monIntro = function () {
             }
             else bool1 = false
         }
-        idB = requestAnimationFrame(sonicBored)
     }
 
     var sonicWalk = function () {
+        idW = requestAnimationFrame(sonicWalk)
         if (bool2 == false) {
             imgSonic.style.left = '-50px'
             imgSonic.style.top = '-95px'
@@ -300,11 +303,11 @@ const monIntro = function () {
             }
             else bool2 = false
         }
-        idW = requestAnimationFrame(sonicWalk)
     }
 
 
     var moveSonicRight = function () {
+        idM = requestAnimationFrame(moveSonicRight)
         if (parseFloat(divSonic.style.left) < 100) {
             divSonic.style.left = parseFloat(divSonic.style.left) + 0.2 + '%'
             divBird.style.left = parseFloat(divBird.style.left) + 0.2 + '%'
@@ -313,13 +316,13 @@ const monIntro = function () {
             divSonic.style.left = '-10%'
             divBird.style.left = '-15%'
         }
-        idM = requestAnimationFrame(moveSonicRight)
     }
 
 
     var back = false
     var cpt = 0
     var monkeyDown = function () {
+        idMD = requestAnimationFrame(monkeyDown)
         if (parseFloat(imgMonkey.style.left) <= 0 && !back) {
             imgMonkey.style.left = parseFloat(imgMonkey.style.left) + 105.52 + 'px'
             cpt++
@@ -327,9 +330,9 @@ const monIntro = function () {
         else {
             back = true
         }
-        idMD = requestAnimationFrame(monkeyDown)
     }
     var monkeyUp = function () {
+        idMU = requestAnimationFrame(monkeyUp)
         if (cpt > 0) {
             imgMonkey.style.left = parseFloat(imgMonkey.style.left) - 105.52 + 'px'
             cpt--
@@ -337,7 +340,6 @@ const monIntro = function () {
         else {
             back = false
         }
-        idMU = requestAnimationFrame(monkeyUp)
     }
     var c00rdX = 20
     var c00rdY = 2
@@ -361,68 +363,84 @@ const monIntro = function () {
     idBird = requestAnimationFrame(animBird)
     idCloud = requestAnimationFrame(moveCloud)
 
+    //FPS control
+    var fps = 60,
+        now,
+        then = Date.now(),
+        interval = 1000 / fps,
+        delta
+
     var dessinerM0n = (/*m0ntimestamp*/) => {
-        if (c00rdX < 131) {
-            c00rdY = Math.cos(c00rdX / 24) * 54
-            m0nCanva.style.top = c00rdY * 1.1 + 60 + '%'
-            m0nCanva.style.left = c00rdX * 1.3 - 50 + '%'
-            ctx.clearRect(0, 0, 40, 40)
-            ctxLune.clearRect(0, 0, 40, 40)
-            switch (c00rdX) {
-                case 45:
-                    $('#space').animate({
-                        backgroundColor: '#0a15db'
-                    }, 500)
-                    cancelAnimationFrame(idW)
-                    cancelAnimationFrame(idM)
-                    $('#moon').fadeOut(1000)
-                    break
-                case 52:
-                    idMD = requestAnimationFrame(monkeyDown)
-                    cancelAnimationFrame(idB)
-                    idW = requestAnimationFrame(sonicWalk)
-                    idM = requestAnimationFrame(moveSonicRight)
-                    snowBack.play()
-                    break
-                case 62:
-                    cancelAnimationFrame(idMD)
-                    idMU = requestAnimationFrame(monkeyUp)
-                    break
-                case 78:
-                    cancelAnimationFrame(idMU)
-                    idMD = requestAnimationFrame(monkeyDown)
-                    break
-                case 90:
-                    cancelAnimationFrame(idMD)
-                    idMU = requestAnimationFrame(monkeyUp)
-                    break
-                case 95:
-                    cancelAnimationFrame(idM)
-                    cancelAnimationFrame(idW)
-                    idB = requestAnimationFrame(sonicBored)
-                    $('#space').animate({
-                        backgroundColor: '#000000'
-                    }, 500)
-                    break
-                case 100:
-                    cancelAnimationFrame(idB)
-                    cancelAnimationFrame(idMU)
-                    //cancelAnimationFrame(idCloud)
-                    snowBack.pause()
-                    break
-                case 105:
-                    $('#moon').fadeIn(500)
-                    break
-            }
-            ctx.fillRect(0, 0, 40, 40)
-            ctxLune.fillRect(0, 0, 40, 40)
-            c00rdX = (c00rdX * 10 + 0.1 * 10) / 10
-        }
-        else {
-            c00rdX = 20
-        }
         requestAnimationFrame(dessinerM0n)
+
+        //fps
+        now = Date.now()
+        delta = now - then
+        if (delta > interval) {
+            then = now - (delta % interval)
+
+            //code for drawing the frame
+            if (c00rdX < 131) {
+                c00rdY = Math.cos(c00rdX / 24) * 54
+                m0nCanva.style.top = c00rdY * 1.1 + 60 + '%'
+                m0nCanva.style.left = c00rdX * 1.3 - 50 + '%'
+                ctx.clearRect(0, 0, 40, 40)
+                ctxLune.clearRect(0, 0, 40, 40)
+                switch (c00rdX) {
+                    case 45:
+                        $('#space').animate({
+                            backgroundColor: '#0a15db'
+                        }, 500)
+                        cancelAnimationFrame(idW)
+                        cancelAnimationFrame(idM)
+                        $('#moon').fadeOut(1000)
+                        break
+                    case 52:
+                        idMD = requestAnimationFrame(monkeyDown)
+                        cancelAnimationFrame(idB)
+                        idW = sonicWalk()
+                        idM = moveSonicRight()
+                        snowBack.play()
+                        break
+                    case 62:
+                        cancelAnimationFrame(idMD)
+                        idMU = monkeyUp()
+                        break
+                    case 78:
+                        cancelAnimationFrame(idMU)
+                        idMD = monkeyDown()
+                        break
+                    case 90:
+                        cancelAnimationFrame(idMD)
+                        idMU = monkeyUp()
+                        break
+                    case 95:
+                        cancelAnimationFrame(idM)
+                        cancelAnimationFrame(idW)
+                        idB = sonicBored()
+                        $('#space').animate({
+                            backgroundColor: '#000000'
+                        }, 500)
+                        break
+                    case 100:
+                        cancelAnimationFrame(idB)
+                        cancelAnimationFrame(idMU)
+                        //cancelAnimationFrame(idCloud)
+                        snowBack.pause()
+                        break
+                    case 105:
+                        $('#moon').fadeIn(500)
+                        break
+                }
+                ctx.fillRect(0, 0, 40, 40)
+                ctxLune.fillRect(0, 0, 40, 40)
+                c00rdX = (c00rdX * 10 + 0.1 * 10) / 10
+            }
+            else {
+                c00rdX = 20
+            }
+        }
     }
-    requestAnimationFrame(dessinerM0n)
+    dessinerM0n()
 }
 monIntro()
