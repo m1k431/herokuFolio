@@ -99,7 +99,7 @@ const jeuBreaker = function () {
         imgSoccer.style.height = '100px'
         imgSoccer.style.left = '-13px'
         imgSoccer.style.top = '-px'
-        imgSoccer.src = '/static/img/soccerBall.png'
+        imgSoccer.src = '/public/images/soccerBall.png'
         imgSoccer.style.backgroundColor = 'none'
         divSprite.appendChild(imgSoccer)
         /*
@@ -124,7 +124,7 @@ const jeuBreaker = function () {
         imgSoccer.style.height = '500px'
         imgSoccer.style.left = '-4px'
         imgSoccer.style.top = '-142.5px'
-        imgSoccer.src = '/static/img/ball.png'
+        imgSoccer.src = '/public/images/ball.png'
         imgSoccer.style.backgroundColor = 'none'
         divSprite.appendChild(imgSoccer)
         */

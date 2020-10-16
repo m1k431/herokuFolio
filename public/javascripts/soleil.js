@@ -46,7 +46,7 @@ const monIntro = function () {
     mon360.muted = true
     mon360.loop = true
     var src360 = document.createElement('source')
-    src360.src = '/static/img/360backnoreverse.webm'
+    src360.src = '/public/images/360backnoreverse.webm'
     src360.type = 'video/webm'
     //ATARIIIIIIIIII
     var divAtari = document.createElement('div')
@@ -55,7 +55,7 @@ const monIntro = function () {
     divAtari.style.right = '5px'
     var m0nimg = document.createElement('img')
     m0nimg.style.position = 'relative'
-    m0nimg.src = '/static/img/Atari.webp'
+    m0nimg.src = '/public/images/Atari.webp'
     //m0nimg.style.top = '36%'
     //m0nimg.style.right = '6%'
     m0nimg.id = 'atari'
@@ -111,7 +111,7 @@ const monIntro = function () {
     imgCloud.style.left = '700px'
     imgCloud.style.top = '-460px'
     imgCloud.style.height = '200%'
-    imgCloud.src = '/static/img/cloud.png'
+    imgCloud.src = '/public/images/cloud.png'
     m0nsoleil.appendChild(imgCloud)
     //mer
     var m4m3r = document.createElement('canvas')
@@ -183,7 +183,7 @@ const monIntro = function () {
     imgMonkey.style.position = 'absolute'
     imgMonkey.style.height = '100%'
     imgMonkey.style.left = '-2215px'
-    imgMonkey.src = '/static/img/monkey.png'
+    imgMonkey.src = '/public/images/monkey.png'
     var imgSonicPalm = document.createElement('img')
     imgSonicPalm.id = 'palmTree'
     imgSonicPalm.className = 'palmTree'
@@ -191,7 +191,7 @@ const monIntro = function () {
     imgSonicPalm.style.height = '65%'
     imgSonicPalm.style.top = '0px'
     imgSonicPalm.style.left = '5px'
-    imgSonicPalm.src = '/static/img/palmTree.png'
+    imgSonicPalm.src = '/public/images/palmTree.png'
     //SONICCCCCCCCC
     var divSonic = document.createElement('div')
     divSonic.id = 'divSonic'
@@ -210,7 +210,7 @@ const monIntro = function () {
     imgSonic.style.position = 'relative'
     imgSonic.style.left = '-55px'
     imgSonic.style.top = '-21px'
-    imgSonic.src = '/static/img/sonic2.png'
+    imgSonic.src = '/public/images/sonic2.png'
     //BIRD div
     var divBird = document.createElement('div')
     divBird.id = 'divBird'
@@ -230,7 +230,7 @@ const monIntro = function () {
     imgBird.style.left = '0px'
     imgBird.style.top = '0px'
     imgBird.style.height = '100%'
-    imgBird.src = '/static/img/twitter-bird-sprite.png'
+    imgBird.src = '/public/images/twitter-bird-sprite.png'
 
     m0nsoleil.appendChild(divMonkey)
     m0nsoleil.appendChild(imgSonicPalm)
